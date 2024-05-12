@@ -20,37 +20,30 @@ def applyRules(rules, fuzzified):
     """Apply the rules to the fuzzified input"""
     results = {}
     risk_high, risk_med, risk_low = [],[],[]
-    value_low, value_high, value_med = None, None, None
     risk_fuzzys = readFuzzySetsFile('Risks.txt')
-
-    # Find the max value for each variable
     for rule in rules:
         value = min([fuzzified[label] for label in rule.antecedent])
         risk_fuzzy = risk_fuzzys[rule.consequent]
-        new_y = list(np.full(100,value))
+        new_y = []
+        # We perform clip the minimum to the risk
+        for y in risk_fuzzy.y:
+            new_y += [min(y,value)]
         risk_fuzzy.y = new_y
         if risk_fuzzy.label == 'LowR':
-            if value_low == None or value > value_low:
-                value_low = value
+            risk_low += [risk_fuzzy]
         elif risk_fuzzy.label == 'MediumR':
-            if value_med == None or value > value_med:
-                value_med = value
+            risk_med += [risk_fuzzy]
         elif risk_fuzzy.label == 'HighR':
-            if value_high == None or value > value_high:
-                value_high = value  
-
-    # Find the last result of the fuzzy with the clip min.
-    for risk_key in risk_fuzzys.keys():
-        fuzzy = risk_fuzzys[risk_key]
-        if risk_key == 'Risk=LowR':
-            fuzzy.y = list(np.full(100,value_low))
-        elif risk_key == 'Risk=MediumR':
-            fuzzy.y = list(np.full(100,value_med))
-        elif risk_key == 'Risk=HighR':
-            fuzzy.y = list(np.full(100,value_high))
+            risk_high += [risk_fuzzy]
+    risks = {'Risk=LowR':risk_low,'Risk=MediumR': risk_med,'Risk=HighR': risk_high}
+    print(risks)
+    for risk_key in risks.keys():
+        risk = risks[risk_key]
         previous_value_list = np.zeros(100)
-        for index in range(len(fuzzy.y)):
-            previous_value_list[index] = max(previous_value_list[index],fuzzy.y[index])
+        for fuzzy in risk:
+            for y in fuzzy.y:
+                index = fuzzy.y.index(y)
+                previous_value_list[index] = max(previous_value_list[index],y)
         risk_fuzzys[risk_key].y = previous_value_list
 
     return risk_fuzzys
