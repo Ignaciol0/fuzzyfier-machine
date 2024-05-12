@@ -8,11 +8,12 @@ def fuzzify(input, fuzzySetsDict):
     fuzzified = {}
     for var, value in input:
         # Find the fuzzy set for the variable
-        set_key = next(key for key in fuzzySetsDict if key.startswith(var + "="))
-        set = fuzzySetsDict[set_key]
-        # Calculate the membership degree for the value
-        set.memDegree = fuzz.interp_membership(set.x, set.y, value)
-        fuzzified[set.var + "=" + set.label] = set.memDegree
+        set_key = [key for key in fuzzySetsDict if key.startswith(var + "=")]
+        for degre in set_key:
+            set = fuzzySetsDict[degre]
+            # Calculate the membership degree for the value
+            set.memDegree = fuzz.interp_membership(set.x, set.y, value)
+            fuzzified[set.var + "=" + set.label] = set.memDegree
     return fuzzified
 
 def applyRules(rules, fuzzified):
