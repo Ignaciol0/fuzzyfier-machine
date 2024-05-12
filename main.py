@@ -18,8 +18,6 @@ def fuzzify(input, fuzzySetsDict):
 
 def applyRules(rules, fuzzified):
     """Apply the rules to the fuzzified input"""
-    results = {}
-    risk_high, risk_med, risk_low = [],[],[]
     value_low, value_high, value_med = None, None, None
     risk_fuzzys = readFuzzySetsFile('Risks.txt')
 
@@ -39,36 +37,14 @@ def applyRules(rules, fuzzified):
             if value_high == None or value > value_high:
                 value_high = value  
 
-    # Find the last result of the fuzzy with the clip min.
-    for risk_key in risk_fuzzys.keys():
-        fuzzy = risk_fuzzys[risk_key]
-        if risk_key == 'Risk=LowR':
-            fuzzy.y = list(np.full(100,value_low))
-        elif risk_key == 'Risk=MediumR':
-            fuzzy.y = list(np.full(100,value_med))
-        elif risk_key == 'Risk=HighR':
-            fuzzy.y = list(np.full(100,value_high))
-        previous_value_list = np.zeros(100)
-        for index in range(len(fuzzy.y)):
-            previous_value_list[index] = max(previous_value_list[index],fuzzy.y[index])
-        risk_fuzzys[risk_key].y = previous_value_list
-
-    return risk_fuzzys
-
-def defuzzify(results, fuzzySets):
-    """Defuzzify the results using the centroid method"""
-    defuzzified = {}
-    for fuzzy_key in results.keys():
-        fuzzy_set = results[fuzzy_key]
-        x = fuzzy_set.x
-        trapmf = fuzzy_set.y
-        defuzzified[fuzzy_key] = fuzz.defuzz(x, trapmf, 'centroid')
-    return defuzzified
+    return f"Low Risk: {round(value_low,2)}, Medium Risk: {round(value_med,2)}, High Risk: {round(value_high,2)}"
+    
 
 # Read the fuzzy sets and the rules from the files
 fuzzySets = readFuzzySetsFile('InputVarSets.txt')
 rules = readRulesFile()
 applications = readApplicationsFile()
+text = ''
 
 # For each application, fuzzify the input, apply the rules, and defuzzify the results
 for app in applications:
@@ -78,8 +54,7 @@ for app in applications:
     # Apply the rules
     results = applyRules(rules, fuzzified)
 
-    # Defuzzify the results
-    defuzzified = defuzzify(results, fuzzySets)
-
-    # Print the defuzzified results
-    print(defuzzified)
+    # Print the results
+    text += f"Applicant {applications.index(app)+1}: {results}\n"
+with open("Results.txt",'w') as f:
+    f.write(text)
