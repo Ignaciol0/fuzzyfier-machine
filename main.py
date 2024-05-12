@@ -20,19 +20,18 @@ def applyRules(rules, fuzzified):
     """Apply the rules to the fuzzified input"""
     value_low, value_high, value_med = None, None, None
     risk_fuzzys = readFuzzySetsFile('Risks.txt')
-
-    # Find the max value for each variable
     for rule in rules:
         value = min([fuzzified[label] for label in rule.antecedent])
         risk_fuzzy = risk_fuzzys[rule.consequent]
-        new_y = list(np.full(100,value))
+        new_y = []
+        # We perform clip the minimum to the risk
+        for y in risk_fuzzy.y:
+            new_y += [min(y,value)]
         risk_fuzzy.y = new_y
         if risk_fuzzy.label == 'LowR':
-            if value_low == None or value > value_low:
-                value_low = value
+            risk_low += [risk_fuzzy]
         elif risk_fuzzy.label == 'MediumR':
-            if value_med == None or value > value_med:
-                value_med = value
+            risk_med += [risk_fuzzy]
         elif risk_fuzzy.label == 'HighR':
             if value_high == None or value > value_high:
                 value_high = value  
