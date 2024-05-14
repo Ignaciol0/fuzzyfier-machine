@@ -22,23 +22,39 @@ def applyRules(rules, fuzzified):
     risk_fuzzys = readFuzzySetsFile('Risks.txt')
     for rule in rules:
         value = min([fuzzified[label] for label in rule.antecedent])
-        risk_fuzzy = risk_fuzzys[rule.consequent]
-        new_y = []
-        # We perform clip the minimum to the risk
-        for y in risk_fuzzy.y:
-            new_y += [min(y,value)]
-        risk_fuzzy.y = new_y
-        if risk_fuzzy.label == 'LowR':
-            risk_low += [risk_fuzzy]
-        elif risk_fuzzy.label == 'MediumR':
-            risk_med += [risk_fuzzy]
-        elif risk_fuzzy.label == 'HighR':
+        if rule.consequent == 'Risk=LowR':
+            if value_low == None or value > value_low:
+                value_low = value  
+        elif rule.consequent == 'Risk=MediumR':
+            if value_med == None or value > value_med:
+                value_med = value  
+        elif rule.consequent == 'Risk=HighR':
             if value_high == None or value > value_high:
                 value_high = value  
-
-    return f"Low Risk: {round(value_low,2)}, Medium Risk: {round(value_med,2)}, High Risk: {round(value_high,2)}"
     
-
+    for risky_key in risk_fuzzys.keys():
+        risk_fuzzy = risk_fuzzys[risky_key]
+        value = 0
+        if risky_key == 'Risk=HighR':
+            value = value_high
+        elif risky_key == 'Risk=LowR':
+            value = value_low
+        elif risky_key == 'Risk=MediumR':
+            value = value_med
+        new_y = list(np.zeros(100))
+        for index in range(len(risk_fuzzy.y)):
+            new_y[index] = min(value,risk_fuzzy.y[index])
+        risk_fuzzy.y = new_y
+    
+    fuzzy_high = risk_fuzzy['Risk=HighR']
+    fuzzy_low = risk_fuzzy['Risk=LowR']
+    fuzzy_med = risk_fuzzy['Risk=MediumR']
+    new_y = list(np.zeros(100))
+    for index in range(len(fuzzy_high.y)):
+        new_y[index] = max(fuzzy_high[index],fuzzy_low[index],fuzzy_med[index])
+    fuzzy = fuzzy_low
+    fuzzy.y = new_y
+    return fuzzy
 # Read the fuzzy sets and the rules from the files
 fuzzySets = readFuzzySetsFile('InputVarSets.txt')
 rules = readRulesFile()

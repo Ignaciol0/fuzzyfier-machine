@@ -1,50 +1,50 @@
-Applicant 1: Low Risk: 0.0, Medium Risk: 0.5, High Risk: 0.5
-Applicant 2: Low Risk: 0.0, Medium Risk: 0.7, High Risk: 0.5
-Applicant 3: Low Risk: 0.0, Medium Risk: 0.7, High Risk: 0.4
-Applicant 4: Low Risk: 0.0, Medium Risk: 0.93, High Risk: 0.0
-Applicant 5: Low Risk: 0.0, Medium Risk: 0.1, High Risk: 0.1
-Applicant 6: Low Risk: 0.0, Medium Risk: 0.37, High Risk: 0.0
-Applicant 7: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 0.9
-Applicant 8: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 0.3
-Applicant 9: Low Risk: 0.0, Medium Risk: 0.77, High Risk: 0.0
-Applicant 10: Low Risk: 0.0, Medium Risk: 0.33, High Risk: 0.33
-Applicant 11: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 1.0
-Applicant 12: Low Risk: 0.5, Medium Risk: 0.5, High Risk: 0.0
-Applicant 13: Low Risk: 0.0, Medium Risk: 0.7, High Risk: 0.7
-Applicant 14: Low Risk: 0.0, Medium Risk: 0.8, High Risk: 1.0
-Applicant 15: Low Risk: 0.0, Medium Risk: 0.5, High Risk: 0.5
-Applicant 16: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 0.07
-Applicant 17: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 0.3
-Applicant 18: Low Risk: 0.0, Medium Risk: 0.6, High Risk: 0.0
-Applicant 19: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 1.0
-Applicant 20: Low Risk: 0.5, Medium Risk: 0.5, High Risk: 0.3
-Applicant 21: Low Risk: 0.0, Medium Risk: 0.77, High Risk: 1.0
-Applicant 22: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 0.33
-Applicant 23: Low Risk: 0.28, Medium Risk: 0.97, High Risk: 0.0
-Applicant 24: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 1.0
-Applicant 25: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 0.0
-Applicant 26: Low Risk: 0.0, Medium Risk: 0.9, High Risk: 0.07
-Applicant 27: Low Risk: 0.0, Medium Risk: 0.3, High Risk: 0.0
-Applicant 28: Low Risk: 0.0, Medium Risk: 0.97, High Risk: 0.97
-Applicant 29: Low Risk: 0.0, Medium Risk: 0.0, High Risk: 0.9
-Applicant 30: Low Risk: 0.0, Medium Risk: 0.8, High Risk: 1.0
-Applicant 31: Low Risk: 0.05, Medium Risk: 1.0, High Risk: 0.0
-Applicant 32: Low Risk: 0.0, Medium Risk: 0.33, High Risk: 0.33
-Applicant 33: Low Risk: 0.25, Medium Risk: 1.0, High Risk: 0.0
-Applicant 34: Low Risk: 0.0, Medium Risk: 0.5, High Risk: 1.0
-Applicant 35: Low Risk: 0.0, Medium Risk: 0.9, High Risk: 0.9
-Applicant 36: Low Risk: 0.0, Medium Risk: 0.17, High Risk: 0.3
-Applicant 37: Low Risk: 0.0, Medium Risk: 0.9, High Risk: 0.0
-Applicant 38: Low Risk: 0.0, Medium Risk: 0.7, High Risk: 0.87
-Applicant 39: Low Risk: 0.0, Medium Risk: 0.8, High Risk: 1.0
-Applicant 40: Low Risk: 0.0, Medium Risk: 0.7, High Risk: 0.0
-Applicant 41: Low Risk: 0.0, Medium Risk: 0.5, High Risk: 0.07
-Applicant 42: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 0.3
-Applicant 43: Low Risk: 0.5, Medium Risk: 1.0, High Risk: 0.0
-Applicant 44: Low Risk: 0.0, Medium Risk: 0.93, High Risk: 0.93
-Applicant 45: Low Risk: 0.1, Medium Risk: 1.0, High Risk: 0.33
-Applicant 46: Low Risk: 0.42, Medium Risk: 0.77, High Risk: 0.0
-Applicant 47: Low Risk: 0.0, Medium Risk: 1.0, High Risk: 1.0
-Applicant 48: Low Risk: 0.42, Medium Risk: 0.77, High Risk: 0.5
-Applicant 49: Low Risk: 0.32, Medium Risk: 1.0, High Risk: 0.9
-Applicant 50: Low Risk: 0.0, Medium Risk: 0.23, High Risk: 0.23
+Applicant 1: None
+Applicant 2: None
+Applicant 3: None
+Applicant 4: None
+Applicant 5: None
+Applicant 6: None
+Applicant 7: None
+Applicant 8: None
+Applicant 9: None
+Applicant 10: None
+Applicant 11: None
+Applicant 12: None
+Applicant 13: None
+Applicant 14: None
+Applicant 15: None
+Applicant 16: None
+Applicant 17: None
+Applicant 18: None
+Applicant 19: None
+Applicant 20: None
+Applicant 21: None
+Applicant 22: None
+Applicant 23: None
+Applicant 24: None
+Applicant 25: None
+Applicant 26: None
+Applicant 27: None
+Applicant 28: None
+Applicant 29: None
+Applicant 30: None
+Applicant 31: None
+Applicant 32: None
+Applicant 33: None
+Applicant 34: None
+Applicant 35: None
+Applicant 36: None
+Applicant 37: None
+Applicant 38: None
+Applicant 39: None
+Applicant 40: None
+Applicant 41: None
+Applicant 42: None
+Applicant 43: None
+Applicant 44: None
+Applicant 45: None
+Applicant 46: None
+Applicant 47: None
+Applicant 48: None
+Applicant 49: None
+Applicant 50: None
