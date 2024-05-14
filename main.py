@@ -65,6 +65,12 @@ def defuzzify(results, fuzzySets):
         defuzzified[fuzzy_key] = fuzz.defuzz(x, trapmf, 'centroid')
     return defuzzified
 
+def defuzzify(results, fuzzySets):
+    """Defuzzify the results using the centroid method"""
+    x = results.x
+    trapmf = np.array(results.y)
+    defuzzified = fuzz.defuzz(x, trapmf, 'centroid')
+    return defuzzified
 # Read the fuzzy sets and the rules from the files
 fuzzySets = readFuzzySetsFile('InputVarSets.txt')
 rules = readRulesFile()
@@ -79,7 +85,10 @@ for app in applications:
     # Apply the rules
     results = applyRules(rules, fuzzified)
 
+    # Defuzzify the results
+    defuzzified = defuzzify(results, fuzzySets)
+
     # Print the results
-    text += f"Applicant {applications.index(app)+1}: {results}\n"
+    text += f"Applicant {applications.index(app)+1}: {round(defuzzified,2)} risky score result\n"
 with open("Results.txt",'w') as f:
     f.write(text)
