@@ -21,7 +21,7 @@ def applyRules(rules, fuzzified):
     value_low, value_high, value_med = None, None, None
     risk_fuzzys = readFuzzySetsFile('Risks.txt')
     for rule in rules:
-        value = min([fuzzified[label] for label in rule.antecedent])
+        value = max([fuzzified[label] for label in rule.antecedent])
         if rule.consequent == 'Risk=LowR':
             if value_low == None or value > value_low:
                 value_low = value  
