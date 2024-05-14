@@ -18,43 +18,52 @@ def fuzzify(input, fuzzySetsDict):
 
 def applyRules(rules, fuzzified):
     """Apply the rules to the fuzzified input"""
+    results = {}
+    risk_high, risk_med, risk_low = [],[],[]
     value_low, value_high, value_med = None, None, None
     risk_fuzzys = readFuzzySetsFile('Risks.txt')
+
+    # Find the max value for each variable
     for rule in rules:
-        value = max([fuzzified[label] for label in rule.antecedent])
-        if rule.consequent == 'Risk=LowR':
+        value = min([fuzzified[label] for label in rule.antecedent])
+        risk_fuzzy = risk_fuzzys[rule.consequent]
+        new_y = list(np.full(100,value))
+        risk_fuzzy.y = new_y
+        if risk_fuzzy.label == 'LowR':
             if value_low == None or value > value_low:
-                value_low = value  
-        elif rule.consequent == 'Risk=MediumR':
+                value_low = value
+        elif risk_fuzzy.label == 'MediumR':
             if value_med == None or value > value_med:
-                value_med = value  
-        elif rule.consequent == 'Risk=HighR':
+                value_med = value
+        elif risk_fuzzy.label == 'HighR':
             if value_high == None or value > value_high:
                 value_high = value  
-    
-    for risky_key in risk_fuzzys.keys():
-        risk_fuzzy = risk_fuzzys[risky_key]
-        value = 0
-        if risky_key == 'Risk=HighR':
-            value = value_high
-        elif risky_key == 'Risk=LowR':
-            value = value_low
-        elif risky_key == 'Risk=MediumR':
-            value = value_med
-        new_y = list(np.zeros(100))
-        for index in range(len(risk_fuzzy.y)):
-            new_y[index] = min(value,risk_fuzzy.y[index])
-        risk_fuzzy.y = new_y
-    
-    fuzzy_high = risk_fuzzys['Risk=HighR']
-    fuzzy_low = risk_fuzzys['Risk=LowR']
-    fuzzy_med = risk_fuzzys['Risk=MediumR']
-    new_y = list(np.zeros(100))
-    for index in range(len(fuzzy_high.y)):
-        new_y[index] = max(fuzzy_high.y[index],fuzzy_low.y[index],fuzzy_med.y[index])
-    fuzzy = fuzzy_low
-    fuzzy.y = new_y
-    return fuzzy
+
+    # Find the last result of the fuzzy with the clip min.
+    for risk_key in risk_fuzzys.keys():
+        fuzzy = risk_fuzzys[risk_key]
+        if risk_key == 'Risk=LowR':
+            fuzzy.y = list(np.full(100,value_low))
+        elif risk_key == 'Risk=MediumR':
+            fuzzy.y = list(np.full(100,value_med))
+        elif risk_key == 'Risk=HighR':
+            fuzzy.y = list(np.full(100,value_high))
+        previous_value_list = np.zeros(100)
+        for index in range(len(fuzzy.y)):
+            previous_value_list[index] = max(previous_value_list[index],fuzzy.y[index])
+        risk_fuzzys[risk_key].y = previous_value_list
+
+    return risk_fuzzys
+
+def defuzzify(results, fuzzySets):
+    """Defuzzify the results using the centroid method"""
+    defuzzified = {}
+    for fuzzy_key in results.keys():
+        fuzzy_set = results[fuzzy_key]
+        x = fuzzy_set.x
+        trapmf = fuzzy_set.y
+        defuzzified[fuzzy_key] = fuzz.defuzz(x, trapmf, 'centroid')
+    return defuzzified
 
 def defuzzify(results, fuzzySets):
     """Defuzzify the results using the centroid method"""
