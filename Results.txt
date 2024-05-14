@@ -1,50 +1,50 @@
-Applicant 1: None
-Applicant 2: None
-Applicant 3: None
-Applicant 4: None
-Applicant 5: None
-Applicant 6: None
-Applicant 7: None
-Applicant 8: None
-Applicant 9: None
-Applicant 10: None
-Applicant 11: None
-Applicant 12: None
-Applicant 13: None
-Applicant 14: None
-Applicant 15: None
-Applicant 16: None
-Applicant 17: None
-Applicant 18: None
-Applicant 19: None
-Applicant 20: None
-Applicant 21: None
-Applicant 22: None
-Applicant 23: None
-Applicant 24: None
-Applicant 25: None
-Applicant 26: None
-Applicant 27: None
-Applicant 28: None
-Applicant 29: None
-Applicant 30: None
-Applicant 31: None
-Applicant 32: None
-Applicant 33: None
-Applicant 34: None
-Applicant 35: None
-Applicant 36: None
-Applicant 37: None
-Applicant 38: None
-Applicant 39: None
-Applicant 40: None
-Applicant 41: None
-Applicant 42: None
-Applicant 43: None
-Applicant 44: None
-Applicant 45: None
-Applicant 46: None
-Applicant 47: None
-Applicant 48: None
-Applicant 49: None
-Applicant 50: None
+Applicant 1: 58.13 risky score result
+Applicant 2: 57.12 risky score result
+Applicant 3: 55.91 risky score result
+Applicant 4: 52.01 risky score result
+Applicant 5: 55.25 risky score result
+Applicant 6: 50.87 risky score result
+Applicant 7: 60.57 risky score result
+Applicant 8: 54.62 risky score result
+Applicant 9: 51.71 risky score result
+Applicant 10: 56.95 risky score result
+Applicant 11: 61.49 risky score result
+Applicant 12: 42.55 risky score result
+Applicant 13: 59.52 risky score result
+Applicant 14: 62.32 risky score result
+Applicant 15: 58.13 risky score result
+Applicant 16: 52.61 risky score result
+Applicant 17: 54.62 risky score result
+Applicant 18: 51.38 risky score result
+Applicant 19: 61.49 risky score result
+Applicant 20: 46.48 risky score result
+Applicant 21: 62.52 risky score result
+Applicant 22: 54.94 risky score result
+Applicant 23: 49.06 risky score result
+Applicant 24: 61.49 risky score result
+Applicant 25: 52.12 risky score result
+Applicant 26: 52.48 risky score result
+Applicant 27: 50.72 risky score result
+Applicant 28: 61.28 risky score result
+Applicant 29: 78.66 risky score result
+Applicant 30: 62.32 risky score result
+Applicant 31: 51.67 risky score result
+Applicant 32: 56.95 risky score result
+Applicant 33: 49.47 risky score result
+Applicant 34: 65.12 risky score result
+Applicant 35: 60.85 risky score result
+Applicant 36: 61.87 risky score result
+Applicant 37: 51.96 risky score result
+Applicant 38: 61.61 risky score result
+Applicant 39: 62.32 risky score result
+Applicant 40: 51.59 risky score result
+Applicant 41: 51.98 risky score result
+Applicant 42: 54.62 risky score result
+Applicant 43: 46.24 risky score result
+Applicant 44: 61.06 risky score result
+Applicant 45: 54.01 risky score result
+Applicant 46: 46.11 risky score result
+Applicant 47: 61.49 risky score result
+Applicant 48: 51.38 risky score result
+Applicant 49: 57.21 risky score result
+Applicant 50: 56.23 risky score result
